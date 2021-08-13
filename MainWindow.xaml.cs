@@ -1,4 +1,5 @@
 ﻿using DYA.Scripts.Models;
+using DYA.Scripts;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -35,12 +36,28 @@ namespace DYA
 
         public ObservableCollection<CourseModel> GetData()
         {
+            AssignmentModel Ass1 = new AssignmentModel()
+            {
+                PointsReached = 2
+            };
+
+            AssignmentModel Ass2 = new AssignmentModel()
+            {
+                PointsReached = 10
+            };
+
+            List<AssignmentModel> testAssignments = new List<AssignmentModel>();
+
+            testAssignments.Add(Ass1);
+            testAssignments.Add(Ass2);
+
             List<CourseModel> listData = new List<CourseModel>();
 
             CourseModel Ex1 = new CourseModel()
             {
                 ID = 0,
-                Name = "Ex1"
+                Name = "Ex1",
+                Assignments = testAssignments
             };
 
             CourseModel Info = new CourseModel()

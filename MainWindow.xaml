@@ -4,8 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DYA"
+        xmlns:converters="clr-namespace:DYA.Converters"
         mc:Ignorable="d"
         Title="DoYourAssignments" Height="450" Width="800">
+
+    <Window.Resources>
+        <converters:AssignmentConverter x:Key="AssignmentConverter"/>
+    </Window.Resources>
+    
     <StackPanel>
         <Grid>
             <Grid.RowDefinitions>
@@ -17,10 +23,23 @@
             <StackPanel Grid.Column="0">
                 <TextBlock Text="View Panel"/>
 
-                <DataGrid x:Name="Assignments" ItemsSource="{Binding}" AutoGenerateColumns="False" AlternatingRowBackground="AliceBlue" CanUserAddRows="False">
+                <DataGrid x:Name="Assignments" ItemsSource="{Binding}" AutoGenerateColumns="False" AlternatingRowBackground="AliceBlue" CanUserAddRows="False" ColumnWidth="Auto">
+                    <DataGrid.Resources>
+                        <Style TargetType="DataGridColumnHeader">
+                            <!--<Setter Property="HorizontalAlignment" Value="Center"/>-->
+                            <Setter Property="FontWeight" Value="Bold"/>
+                        </Style>
+                    </DataGrid.Resources>
+
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="ID"  Binding="{Binding ID}" IsReadOnly="True"/>
                         <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True"/>
+
+                        <!--<DataGridTextColumn Header="Assignments" Binding="{Binding Assignments, Converter={StaticResource AssignmentConverter}}"/>-->
+
+                        <DataGridTextColumn Header="W1" Binding="{Binding W1, Converter={StaticResource AssignmentConverter}}"/>
+                        
+                        <DataGridTextColumn Header="Current Points" Binding="{Binding CurrentPoints}" IsReadOnly="True"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>

@@ -55,9 +55,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Scripts\Assignments.cs" />
-    <Compile Include="Scripts\Models\AssignmentModel.cs" />
-    <Compile Include="Scripts\Models\CourseModel.cs" />
+    <Compile Include="Scripts\DataConverter.cs" />
+    <Compile Include="Scripts\Models.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
