@@ -6,7 +6,30 @@
         xmlns:local="clr-namespace:DYA"
         mc:Ignorable="d"
         Title="DoYourAssignments" Height="450" Width="800">
-    <Grid>
+    <StackPanel>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!--View Panel-->
+            <StackPanel Grid.Column="0">
+                <TextBlock Text="View Panel"/>
+
+                <DataGrid x:Name="Assignments" ItemsSource="{Binding}" AutoGenerateColumns="False" AlternatingRowBackground="AliceBlue" CanUserAddRows="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID"  Binding="{Binding ID}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+
+            <!--Selection Panel-->
+            <StackPanel Grid.Row="1">
+
+            </StackPanel>
+        </Grid>
         
-    </Grid>
+    </StackPanel>
 </Window>
