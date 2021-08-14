@@ -10,6 +10,17 @@
 
     <Window.Resources>
         <converters:AssignmentConverter x:Key="AssignmentConverter"/>
+        <converters:VisibilityConverter x:Key="VisibilityConverter"/>
+
+        <!--<ResourceDictionary x:Key="Buttons">-->
+            <DataTemplate x:Key="ExpandDetails">
+                <ToggleButton x:Name="ShowDetails"
+                              IsChecked="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow},
+                                                  Path=DetailsVisibility,
+                                                  Converter={StaticResource VisibilityConverter},
+                                                  Mode=TwoWay}"/>
+            </DataTemplate>
+        <!--</ResourceDictionary>-->
     </Window.Resources>
     
     <StackPanel>
@@ -32,6 +43,8 @@
                     </DataGrid.Resources>
 
                     <DataGrid.Columns>
+                        <DataGridTemplateColumn Header="Details" CellTemplate="{StaticResource ExpandDetails}" Width="Auto"/>
+
                         <DataGridTextColumn Header="ID"  Binding="{Binding ID}" IsReadOnly="True" Width="*"/>
                         <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" Width="*"/>
 
@@ -62,9 +75,25 @@
                         <DataTemplate>
                             <Border BorderThickness="5" Background="Aquamarine">
                                 <StackPanel Orientation="Vertical">
-                                    <TextBlock Text="Test"/>
-                                    
-                                    <TextBlock Text="Test2"/>
+                                    <!--Info-->
+                                    <TextBlock Text="Class:"/>
+
+                                    <TextBlock Text="{Binding ClassName}"/>
+                                    <!--Assignments-->
+
+                                    <DataGrid x:Name="ViewPanel" ItemsSource="{Binding Assignments}" CanUserAddRows="False">
+                                        <!--<DataGrid.Resources>
+                                            <Style TargetType="DataGridColumnHeader">
+                                                --><!--<Setter Property="HorizontalAlignment" Value="Center"/>--><!--
+                                                <Setter Property="FontWeight" Value="Bold"/>
+                                            </Style>
+                                        </DataGrid.Resources>
+                                        
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn Header="W1" Binding="{Binding W1, Converter={StaticResource AssignmentConverter}}" Width="*"/>
+                                            <DataGridTextColumn Header="W2" Binding="{Binding W2, Converter={StaticResource AssignmentConverter}}" Width="*"/>
+                                        </DataGrid.Columns>-->
+                                    </DataGrid>
                                 </StackPanel>                                
                             </Border>
                         </DataTemplate>
