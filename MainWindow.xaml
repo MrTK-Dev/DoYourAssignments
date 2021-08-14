@@ -23,7 +23,7 @@
             <StackPanel Grid.Column="0">
                 <TextBlock Text="View Panel"/>
 
-                <DataGrid x:Name="Assignments" ItemsSource="{Binding}" AutoGenerateColumns="False" AlternatingRowBackground="AliceBlue" CanUserAddRows="False" ColumnWidth="Auto">
+                <DataGrid x:Name="Assignments" ItemsSource="{Binding}" AutoGenerateColumns="False" AlternatingRowBackground="AliceBlue" CanUserAddRows="False">
                     <DataGrid.Resources>
                         <Style TargetType="DataGridColumnHeader">
                             <!--<Setter Property="HorizontalAlignment" Value="Center"/>-->
@@ -32,15 +32,43 @@
                     </DataGrid.Resources>
 
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="ID"  Binding="{Binding ID}" IsReadOnly="True"/>
-                        <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="ID"  Binding="{Binding ID}" IsReadOnly="True" Width="*"/>
+                        <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" Width="*"/>
 
                         <!--<DataGridTextColumn Header="Assignments" Binding="{Binding Assignments, Converter={StaticResource AssignmentConverter}}"/>-->
 
-                        <DataGridTextColumn Header="W1" Binding="{Binding W1, Converter={StaticResource AssignmentConverter}}"/>
+                        <!--<DataGridTextColumn Header="W1" Binding="{Binding W1, Converter={StaticResource AssignmentConverter}}" Width="*"/>-->
+                        <!--<DataGridTextColumn Header="W2" Binding="{Binding W2, Converter={StaticResource AssignmentConverter}}" Width="*"/>
+                        <DataGridTextColumn Header="W3" Binding="{Binding W3, Converter={StaticResource AssignmentConverter}}" Width="*"/>
+                        <DataGridTextColumn Header="W4" Binding="{Binding W4, Converter={StaticResource AssignmentConverter}}" Width="*"/>
+                        <DataGridTextColumn Header="W5" Binding="{Binding W5, Converter={StaticResource AssignmentConverter}}" Width="*"/>
+                        <DataGridTextColumn Header="W6" Binding="{Binding W6, Converter={StaticResource AssignmentConverter}}" Width="*"/>
+                        <DataGridTextColumn Header="W7" Binding="{Binding W7, Converter={StaticResource AssignmentConverter}}" Width="*"/>
+                        <DataGridTextColumn Header="W8" Binding="{Binding W8, Converter={StaticResource AssignmentConverter}}" Width="*"/>
+                        <DataGridTextColumn Header="W9" Binding="{Binding W9, Converter={StaticResource AssignmentConverter}}" Width="*"/>
+                        <DataGridTextColumn Header="W10" Binding="{Binding W10, Converter={StaticResource AssignmentConverter}}" Width="*"/>
+                        <DataGridTextColumn Header="W11" Binding="{Binding W11, Converter={StaticResource AssignmentConverter}}" Width="*"/>
+                        <DataGridTextColumn Header="W12" Binding="{Binding W12, Converter={StaticResource AssignmentConverter}}" Width="*"/>
+                        <DataGridTextColumn Header="W13" Binding="{Binding W13, Converter={StaticResource AssignmentConverter}}" Width="*"/>-->
+
                         
-                        <DataGridTextColumn Header="Current Points" Binding="{Binding CurrentPoints}" IsReadOnly="True"/>
+                        
+                        <DataGridTextColumn Header="Current Points" Binding="{Binding CurrentPoints}" IsReadOnly="True" Width="*"/>
+                        <DataGridTextColumn Header="Max Points (%)" Binding="{Binding MaxPoints}" IsReadOnly="True" Width="*"/>
+                        <DataGridTextColumn Header="Percentage" Binding="{Binding PercentagePoints}" IsReadOnly="True" Width="*"/>
                     </DataGrid.Columns>
+
+                    <DataGrid.RowDetailsTemplate>
+                        <DataTemplate>
+                            <Border BorderThickness="5" Background="Aquamarine">
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="Test"/>
+                                    
+                                    <TextBlock Text="Test2"/>
+                                </StackPanel>                                
+                            </Border>
+                        </DataTemplate>
+                    </DataGrid.RowDetailsTemplate>
                 </DataGrid>
             </StackPanel>
 

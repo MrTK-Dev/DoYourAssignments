@@ -38,12 +38,14 @@ namespace DYA
         {
             AssignmentModel Ass1 = new AssignmentModel()
             {
-                PointsReached = 2
+                PointsReached = 2,
+                PointsMax = 10
             };
 
             AssignmentModel Ass2 = new AssignmentModel()
             {
-                PointsReached = 10
+                PointsReached = 10,
+                PointsMax = 10
             };
 
             List<AssignmentModel> testAssignments = new List<AssignmentModel>();
