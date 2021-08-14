@@ -9,17 +9,14 @@ namespace DYA.Scripts.Models
     public class CourseModel
     {
         public int ID { get; set; }
-
         public string Name { get; set; }
+        public string ClassName { get; set; }
 
         public int Weekcounts { get; set; }
-
         public DateTime FirstDue { get; set; }
-
         public int LowerLimit { get; set; }
 
         public List<AssignmentModel> Assignments { get; set; } = new List<AssignmentModel>();
-
         public AssignmentModel W1
         {
             get
@@ -34,7 +31,6 @@ namespace DYA.Scripts.Models
                 Assignments[0] = W1;
             }
         }
-
         public AssignmentModel W2
         {
             get
@@ -64,7 +60,6 @@ namespace DYA.Scripts.Models
                 return curPoints;
             }
         }
-
         public float MaxPoints
         {
             get
@@ -79,7 +74,6 @@ namespace DYA.Scripts.Models
                 return maxPoints;
             }
         }
-
         public float PercentagePoints
         {
             get
