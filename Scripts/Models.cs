@@ -50,7 +50,46 @@ namespace DYA.Scripts.Models
             }
         }
 
-        public int CurrentPoints { get; set; }
+        public float CurrentPoints
+        {
+            get
+            {
+                float curPoints = new float();
+
+                for (int i = 0; i < Assignments.Count; i++)
+                {
+                    curPoints += Assignments[i].PointsReached;
+                }
+
+                return curPoints;
+            }
+        }
+
+        public float MaxPoints
+        {
+            get
+            {
+                float maxPoints = new float();
+
+                for (int i = 0; i < Assignments.Count; i++)
+                {
+                    maxPoints += Assignments[i].PointsMax;
+                }
+
+                return maxPoints;
+            }
+        }
+
+        public float PercentagePoints
+        {
+            get
+            {
+                if (MaxPoints == 0)
+                    return 0;
+
+                return CurrentPoints / MaxPoints;
+            }
+        }
     }
 
     public class AssignmentModel
@@ -65,6 +104,9 @@ namespace DYA.Scripts.Models
         {
             get
             {
+                if (PointsMax == 0)
+                    return 0;
+
                 return PointsReached / PointsMax;
             }
         }
