@@ -12,7 +12,7 @@ namespace DYA.Scripts.Models
         public string Name { get; set; }
         public string ClassName { get; set; }
 
-        public int Weekcounts { get; set; }
+        public int Weekcount { get; set; }
         public DateTime FirstDue { get; set; }
         public int LowerLimit { get; set; }
 
@@ -54,6 +54,24 @@ namespace DYA.Scripts.Models
                     return 0;
 
                 return CurrentPoints / MaxPoints;
+            }
+        }
+
+        public DateTime NextDueTime
+        {
+            get
+            {
+                return Helpers.GetLatestAssignment(this).DueTime;
+            }
+        }
+        public Helpers.GoalKind GoalKind { get; set; }
+        public float GoalPercentage { get; set; }
+        public Helpers.GoalDiscard GoalDiscard { get; set; }
+        public bool GoalReached
+        {
+            get
+            {
+                return Helpers.HasReachedGoal(this);
             }
         }
     }

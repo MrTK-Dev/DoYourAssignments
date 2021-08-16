@@ -47,7 +47,7 @@
                     <DataGrid.Columns>
                         <!--<DataGridTemplateColumn Header="Details" CellTemplate="{StaticResource ExpandDetails}" Width="Auto"/>-->
 
-                        <DataGridTextColumn Header="ID"  Binding="{Binding ID}" IsReadOnly="True" Width="*"/>
+                        <DataGridTextColumn Header="ID"  Binding="{Binding ID}" IsReadOnly="True" Width="Auto"/>
                         <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" Width="*"/>
                         <DataGridTextColumn Header="Current Points" Binding="{Binding CurrentPoints}" IsReadOnly="True" Width="*"/>
                         <DataGridTextColumn Header="Max Points" Binding="{Binding MaxPoints}" IsReadOnly="True" Width="*"/>
@@ -57,17 +57,39 @@
                     <DataGrid.RowDetailsTemplate>
                         <DataTemplate>
                             <Border BorderThickness="5">
-                                <StackPanel Orientation="Vertical">
-                                    <!--Info-->
-                                    <TextBlock Text="Class:"/>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                    </Grid.ColumnDefinitions>
 
-                                    <TextBlock Text="{Binding ClassName}"/>
+                                    <StackPanel Grid.Column="0">
+                                        <!--Info-->
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Class: "/>
+
+                                            <TextBlock Text="{Binding ClassName}"/>
+                                        </StackPanel>
+                                        
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Weeks: "/>
+
+                                            <TextBlock Text="{Binding Weekcount}"/>
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Next Due: "/>
+
+                                            <TextBlock Text="{Binding NextDueTime}"/>
+                                        </StackPanel>
+                                    </StackPanel>
 
                                     <!--Assignments-->
                                     <DataGrid x:Name="ViewPanel"
                                               ItemsSource="{Binding Assignments}"
                                               CanUserAddRows="False"
-                                              AutoGenerateColumns="False">
+                                              AutoGenerateColumns="False"
+                                              Grid.Column="1">
 
                                         <DataGrid.Columns>
                                             <DataGridTextColumn Header="Week" Binding="{Binding Week}" IsReadOnly="True"/>
@@ -77,9 +99,9 @@
                                             <DataGridTextColumn Header="Reached Points" Binding="{Binding PointsReached}"/>
                                             <DataGridTextColumn Header="Max Points" Binding="{Binding PointsMax}"/>
                                             <DataGridTextColumn Header="Percentage (%)" Binding="{Binding PointsPercentage}" IsReadOnly="True"/>
-                                    </DataGrid.Columns>
+                                        </DataGrid.Columns>
                                     </DataGrid>
-                                </StackPanel>                                
+                                </Grid>                                
                             </Border>
                         </DataTemplate>
                     </DataGrid.RowDetailsTemplate>
