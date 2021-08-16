@@ -38,20 +38,20 @@
 
                 <DataGrid x:Name="Assignments" ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserAddRows="False">
                     <DataGrid.Resources>
-                        <Style TargetType="DataGridColumnHeader">
-                            <!--<Setter Property="HorizontalAlignment" Value="Center"/>-->
+                        <!--<Style TargetType="DataGridColumnHeader">
+                            --><!--<Setter Property="HorizontalAlignment" Value="Center"/>--><!--
                             <Setter Property="FontWeight" Value="Bold"/>
-                        </Style>
+                        </Style>-->
                     </DataGrid.Resources>
 
                     <DataGrid.Columns>
-                        <DataGridTemplateColumn Header="Details" CellTemplate="{StaticResource ExpandDetails}" Width="Auto"/>
+                        <!--<DataGridTemplateColumn Header="Details" CellTemplate="{StaticResource ExpandDetails}" Width="Auto"/>-->
 
                         <DataGridTextColumn Header="ID"  Binding="{Binding ID}" IsReadOnly="True" Width="*"/>
                         <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" Width="*"/>
                         <DataGridTextColumn Header="Current Points" Binding="{Binding CurrentPoints}" IsReadOnly="True" Width="*"/>
-                        <DataGridTextColumn Header="Max Points (%)" Binding="{Binding MaxPoints}" IsReadOnly="True" Width="*"/>
-                        <DataGridTextColumn Header="Percentage" Binding="{Binding PercentagePoints}" IsReadOnly="True" Width="*"/>
+                        <DataGridTextColumn Header="Max Points" Binding="{Binding MaxPoints}" IsReadOnly="True" Width="*"/>
+                        <DataGridTextColumn Header="Percentage (%)" Binding="{Binding PercentagePoints}" IsReadOnly="True" Width="*"/>
                     </DataGrid.Columns>
 
                     <DataGrid.RowDetailsTemplate>
@@ -76,7 +76,7 @@
                                             <DataGridCheckBoxColumn Header="Submitted" Binding="{Binding Submitted}"/>
                                             <DataGridTextColumn Header="Reached Points" Binding="{Binding PointsReached}"/>
                                             <DataGridTextColumn Header="Max Points" Binding="{Binding PointsMax}"/>
-                                            <DataGridTextColumn Header="Percentage" Binding="{Binding PointsPercentage}" IsReadOnly="True"/>
+                                            <DataGridTextColumn Header="Percentage (%)" Binding="{Binding PointsPercentage}" IsReadOnly="True"/>
                                     </DataGrid.Columns>
                                     </DataGrid>
                                 </StackPanel>                                
