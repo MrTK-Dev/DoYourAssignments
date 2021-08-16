@@ -48,10 +48,11 @@ namespace DYA
                 PointsMax = 10
             };
 
-            List<AssignmentModel> testAssignments = new List<AssignmentModel>();
-
-            testAssignments.Add(Ass1);
-            testAssignments.Add(Ass2);
+            List<AssignmentModel> testAssignments = new List<AssignmentModel>
+            {
+                Ass1,
+                Ass2
+            };
 
             List<CourseModel> listData = new List<CourseModel>();
 

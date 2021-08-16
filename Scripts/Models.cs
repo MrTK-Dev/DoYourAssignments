@@ -17,34 +17,6 @@ namespace DYA.Scripts.Models
         public int LowerLimit { get; set; }
 
         public List<AssignmentModel> Assignments { get; set; } = new List<AssignmentModel>();
-        public AssignmentModel W1
-        {
-            get
-            {
-                if (Assignments.Count >= 1)
-                    return Assignments[0];
-                return null;
-            }
-
-            set
-            {
-                Assignments[0] = W1;
-            }
-        }
-        public AssignmentModel W2
-        {
-            get
-            {
-                if (Assignments.Count >= 2)
-                    return Assignments[1];
-                return null;
-            }
-
-            set
-            {
-                Assignments[1] = W2;
-            }
-        }
 
         public float CurrentPoints
         {
@@ -91,8 +63,8 @@ namespace DYA.Scripts.Models
         public int Week { get; set; }
         public DateTime DueTime { get; set; }
         public bool Submitted { get; set; }
-        public float PointsMax { get; set; }
         public float PointsReached { get; set; }
+        public float PointsMax { get; set; }
 
         public float PointsPercentage
         {
@@ -104,6 +76,5 @@ namespace DYA.Scripts.Models
                 return PointsReached / PointsMax;
             }
         }
-
     }
 }
