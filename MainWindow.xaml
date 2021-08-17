@@ -31,10 +31,15 @@
             </Grid.RowDefinitions>
 
             <!--View Panel-->
-            <StackPanel Grid.Column="0">
-                <TextBlock Text="View Panel"/>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                
+                <TextBlock Text="View Panel" Grid.Row="0"/>
 
-                <DataGrid x:Name="Assignments" ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserAddRows="False">
+                <DataGrid x:Name="Assignments" ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserAddRows="False" Grid.Row="1">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="ID"  Binding="{Binding ID}" IsReadOnly="True" Width="Auto"/>
                         <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" Width="*"/>
@@ -101,7 +106,7 @@
                         </DataTemplate>
                     </DataGrid.RowDetailsTemplate>
                 </DataGrid>
-            </StackPanel>
+            </Grid>
 
             <!--Saving/Settings Panel-->
             <StackPanel Grid.Row="1">
