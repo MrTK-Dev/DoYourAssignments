@@ -4,9 +4,110 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DYA"
+        xmlns:ui="http://schemas.modernwpf.com/2019"
+        ui:WindowHelper.UseModernWindowStyle="True"
+        xmlns:converters="clr-namespace:DYA.Converters"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="DoYourAssignments" Height="450" Width="800" MinHeight="450" MinWidth="800">
+
+    <Window.Resources>
+        <converters:AssignmentConverter x:Key="AssignmentConverter"/>
+        <!--<converters:VisibilityConverter x:Key="VisibilityConverter"/>
+
+        <DataTemplate x:Key="ExpandDetails">
+            <ToggleButton x:Name="ShowDetails"
+                              IsChecked="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow},
+                                                  Path=DetailsVisibility,
+                                                  Converter={StaticResource VisibilityConverter},
+                                                  Mode=TwoWay}"/>
+        </DataTemplate>-->
+    </Window.Resources>
+    
+    <StackPanel>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!--View Panel-->
+            <StackPanel Grid.Column="0">
+                <TextBlock Text="View Panel"/>
+
+                <DataGrid x:Name="Assignments" ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserAddRows="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID"  Binding="{Binding ID}" IsReadOnly="True" Width="Auto"/>
+                        <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" Width="*"/>
+                        <DataGridTextColumn Header="Current Points" Binding="{Binding CurrentPoints}" IsReadOnly="True" Width="*"/>
+                        <DataGridTextColumn Header="Max Points" Binding="{Binding MaxPoints}" IsReadOnly="True" Width="*"/>
+                        <DataGridTextColumn Header="Percentage (%)" Binding="{Binding PercentagePoints}" IsReadOnly="True" Width="*"/>
+                    </DataGrid.Columns>
+
+                    <DataGrid.RowDetailsTemplate>
+                        <DataTemplate>
+                            <Border BorderThickness="5">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <StackPanel Grid.Column="0">
+                                        <!--Info-->
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Class: "/>
+
+                                            <TextBlock Text="{Binding ClassName}"/>
+                                        </StackPanel>
+                                        
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Weeks: "/>
+
+                                            <TextBlock Text="{Binding Weekcount}"/>
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Next Due: "/>
+
+                                            <TextBlock Text="{Binding NextDueTime}"/>
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Goal reached?: "/>
+
+                                            <TextBlock Text="{Binding GoalReached}"/>
+                                        </StackPanel>
+                                    </StackPanel>
+
+                                    <!--Assignments-->
+                                    <DataGrid x:Name="ViewPanel"
+                                              ItemsSource="{Binding Assignments}"
+                                              CanUserAddRows="False"
+                                              AutoGenerateColumns="False"
+                                              Grid.Column="1">
+
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn Header="Week" Binding="{Binding Week}" IsReadOnly="True"/>
+                                            <!--TODO: add DatePicker for editing-->
+                                            <DataGridTextColumn Header="Due Time" Binding="{Binding DueTime}"/>
+                                            <DataGridCheckBoxColumn Header="Submitted" Binding="{Binding Submitted}"/>
+                                            <DataGridTextColumn Header="Reached Points" Binding="{Binding PointsReached}"/>
+                                            <DataGridTextColumn Header="Max Points" Binding="{Binding PointsMax}"/>
+                                            <DataGridTextColumn Header="Percentage (%)" Binding="{Binding PointsPercentage}" IsReadOnly="True"/>
+                                        </DataGrid.Columns>
+                                    </DataGrid>
+                                </Grid>                                
+                            </Border>
+                        </DataTemplate>
+                    </DataGrid.RowDetailsTemplate>
+                </DataGrid>
+            </StackPanel>
+
+            <!--Saving/Settings Panel-->
+            <StackPanel Grid.Row="1">
+
+            </StackPanel>
+        </Grid>
         
-    </Grid>
+    </StackPanel>
 </Window>
