@@ -82,6 +82,12 @@
 
                                             <TextBlock Text="{Binding NextDueTime}"/>
                                         </StackPanel>
+
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Goal reached?: "/>
+
+                                            <TextBlock Text="{Binding GoalReached}"/>
+                                        </StackPanel>
                                     </StackPanel>
 
                                     <!--Assignments-->
