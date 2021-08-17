@@ -24,6 +24,7 @@ namespace DYA.Scripts
         {
             none,
             Percentage,
+            LowerLimit,
             fiftyfifty
         }
 
@@ -43,6 +44,9 @@ namespace DYA.Scripts
 
                 case GoalKind.Percentage:
                     return courseModel.PercentagePoints >= courseModel.GoalPercentage;
+
+                case GoalKind.LowerLimit:
+                    return courseModel.CurrentPoints >= courseModel.LowerLimit;
 
                 case GoalKind.fiftyfifty:
                     List<AssignmentModel> FirstHalf = new List<AssignmentModel>();
