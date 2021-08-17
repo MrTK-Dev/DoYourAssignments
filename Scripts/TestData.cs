@@ -1,6 +1,7 @@
 ﻿using DYA.Scripts.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -64,5 +65,42 @@ namespace DYA.Scripts
             Name = "fiftyfifty Course",
             Weekcount = 5
         };
+
+        List<AssignmentModel> GetRandomAssignments(CourseModel courseModel)
+        {
+            List<AssignmentModel> newAssignmentModels = new List<AssignmentModel>();
+
+            for (int i = 0; i < courseModel.Weekcount; i++)
+            {
+                int maxPoints = new Random().Next(10, 21);
+
+                newAssignmentModels.Add(new AssignmentModel()
+                {
+                    Week = i + 1,
+                    Submitted = true,
+                    DueTime = courseModel.FirstDue.AddDays(i * 7),
+                    PointsMax = maxPoints,
+                    PointsReached = new Random().Next(0, maxPoints + 1)
+                });
+            }
+
+            return newAssignmentModels;
+        }
+
+        ObservableCollection<CourseModel> GetCourses()
+        {
+            Course1.Assignments = GetRandomAssignments(Course1);
+            Course2.Assignments = GetRandomAssignments(Course2);
+            Course3.Assignments = GetRandomAssignments(Course3);
+
+            List<CourseModel> courseModels = new List<CourseModel>
+            {
+                Course1,
+                Course2,
+                Course3
+            };
+
+            return new ObservableCollection<CourseModel>(courseModels);
+        }
     }
 }
