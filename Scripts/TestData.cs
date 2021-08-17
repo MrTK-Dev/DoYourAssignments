@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DYA.Scripts
 {
-    class TestData
+    public class TestData
     {
         CourseModel Course0 = new CourseModel()
         {
@@ -87,7 +87,7 @@ namespace DYA.Scripts
             return newAssignmentModels;
         }
 
-        ObservableCollection<CourseModel> GetCourses()
+        public ObservableCollection<CourseModel> GetCourses()
         {
             Course1.Assignments = GetRandomAssignments(Course1);
             Course2.Assignments = GetRandomAssignments(Course2);
@@ -95,6 +95,7 @@ namespace DYA.Scripts
 
             List<CourseModel> courseModels = new List<CourseModel>
             {
+                Course0,
                 Course1,
                 Course2,
                 Course3

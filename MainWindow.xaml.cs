@@ -27,11 +27,8 @@ namespace DYA
         {
             InitializeComponent();
 
-            //GetData() creates a collection of Customer data from a database
-            ObservableCollection<CourseModel> custdata = GetData();
-
-            //Bind the DataGrid to the customer data
-            Assignments.DataContext = custdata;
+            //Bind the DataGrid to the data
+            Assignments.DataContext = new TestData().GetCourses();
         }
 
         public ObservableCollection<CourseModel> GetData()
