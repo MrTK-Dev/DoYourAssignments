@@ -61,6 +61,7 @@
     <Compile Include="Scripts\DataConverter.cs" />
     <Compile Include="Scripts\Helpers.cs" />
     <Compile Include="Scripts\Models.cs" />
+    <Compile Include="Scripts\TestData.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
