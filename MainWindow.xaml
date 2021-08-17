@@ -12,17 +12,15 @@
 
     <Window.Resources>
         <converters:AssignmentConverter x:Key="AssignmentConverter"/>
-        <converters:VisibilityConverter x:Key="VisibilityConverter"/>
+        <!--<converters:VisibilityConverter x:Key="VisibilityConverter"/>
 
-        <!--<ResourceDictionary x:Key="Buttons">-->
-            <DataTemplate x:Key="ExpandDetails">
-                <ToggleButton x:Name="ShowDetails"
+        <DataTemplate x:Key="ExpandDetails">
+            <ToggleButton x:Name="ShowDetails"
                               IsChecked="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow},
                                                   Path=DetailsVisibility,
                                                   Converter={StaticResource VisibilityConverter},
                                                   Mode=TwoWay}"/>
-            </DataTemplate>
-        <!--</ResourceDictionary>-->
+        </DataTemplate>-->
     </Window.Resources>
     
     <StackPanel>
@@ -37,16 +35,7 @@
                 <TextBlock Text="View Panel"/>
 
                 <DataGrid x:Name="Assignments" ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserAddRows="False">
-                    <DataGrid.Resources>
-                        <!--<Style TargetType="DataGridColumnHeader">
-                            --><!--<Setter Property="HorizontalAlignment" Value="Center"/>--><!--
-                            <Setter Property="FontWeight" Value="Bold"/>
-                        </Style>-->
-                    </DataGrid.Resources>
-
                     <DataGrid.Columns>
-                        <!--<DataGridTemplateColumn Header="Details" CellTemplate="{StaticResource ExpandDetails}" Width="Auto"/>-->
-
                         <DataGridTextColumn Header="ID"  Binding="{Binding ID}" IsReadOnly="True" Width="Auto"/>
                         <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" Width="*"/>
                         <DataGridTextColumn Header="Current Points" Binding="{Binding CurrentPoints}" IsReadOnly="True" Width="*"/>
@@ -114,7 +103,7 @@
                 </DataGrid>
             </StackPanel>
 
-            <!--Selection Panel-->
+            <!--Saving/Settings Panel-->
             <StackPanel Grid.Row="1">
 
             </StackPanel>
