@@ -17,7 +17,7 @@ namespace DYA.Scripts
                 if (!assignmentModels[i].Submitted)
                     return assignmentModels[i];
 
-            return null;
+            return new AssignmentModel();
         }
 
         public enum GoalKind
