@@ -10,6 +10,8 @@ namespace DYA.Scripts
 {
     public class TestData
     {
+        readonly Random Random = new Random();
+
         CourseModel Course0 = new CourseModel()
         {
             Assignments = new List<AssignmentModel>(),
@@ -70,17 +72,17 @@ namespace DYA.Scripts
         {
             List<AssignmentModel> newAssignmentModels = new List<AssignmentModel>();
 
+            int maxPoints = Random.Next(10, 21);
+
             for (int i = 0; i < courseModel.Weekcount; i++)
             {
-                int maxPoints = new Random().Next(10, 21);
-
                 newAssignmentModels.Add(new AssignmentModel()
                 {
                     Week = i + 1,
                     Submitted = true,
                     DueTime = courseModel.FirstDue.AddDays(i * 7),
                     PointsMax = maxPoints,
-                    PointsReached = new Random().Next(0, maxPoints + 1)
+                    PointsReached = Random.Next(0, maxPoints + 1)
                 });
             }
 
