@@ -62,6 +62,7 @@
     <Compile Include="Scripts\Helpers.cs" />
     <Compile Include="Scripts\Models.cs" />
     <Compile Include="Scripts\Savings.cs" />
+    <Compile Include="Scripts\TestData.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -104,6 +105,9 @@
   <ItemGroup>
     <PackageReference Include="ModernWpfUI">
       <Version>0.9.4</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.1</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
