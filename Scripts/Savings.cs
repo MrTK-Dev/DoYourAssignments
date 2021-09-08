@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace DYA.Scripts
 {
-    class Savings
+    public static class Savings
     {
+        
     }
 }
