@@ -31,12 +31,9 @@ namespace DYA
             //Bind the DataGrid to the data
             //Assignments.DataContext = new TestData().GetCourses();
             
-            Savings.DATACACHE = new List<CourseModel>(new TestData().GetCourses());
-
-            Console.WriteLine("DATACACHE Assignments Counts: " + Savings.DATACACHE[1].Assignments.Count);
-            Console.WriteLine("TestData Assignments Counts: " + new TestData().GetCourses()[1].Assignments.Count);
-
-            Savings.SaveToFile();
+            //Generate random test data
+            //Savings.DATACACHE = new List<CourseModel>(new TestData().GetCourses());
+            //Savings.SaveToFile();
 
             Savings.LoadFromFile();
 
