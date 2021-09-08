@@ -12,7 +12,7 @@ namespace DYA.Scripts.DATA
 {
     public static class Savings
     {
-        public static List<CourseModel> DATACACHE = new List<CourseModel>();
+        public static List<CourseModel> DATACACHE { get; set; } = new List<CourseModel>();
 
         readonly static string FileName = "DYA-Settings.json";
 
@@ -28,7 +28,9 @@ namespace DYA.Scripts.DATA
             {
                 List<LocalAssignment> newAssignmentModels = new List<LocalAssignment>();
 
-                for (int j = 0; j < DATACACHE[j].Assignments.Count; j++)
+                //Console.WriteLine("DATACACHE Assignments Counts (in fnc): " + Savings.DATACACHE[1].Assignments.Count);
+
+                for (int j = 0; j < DATACACHE[i].Assignments.Count; j++)
                 {
                     LocalAssignment localAssignment = new LocalAssignment()
                     {
@@ -40,6 +42,10 @@ namespace DYA.Scripts.DATA
                     };
 
                     newAssignmentModels.Add(localAssignment);
+
+
+                    Console.WriteLine(DATACACHE[i].Assignments[j].PointsMax);
+                    Console.WriteLine(localAssignment.PointsMax);
                 }
 
                 LocalCourse localCourse = new LocalCourse()
@@ -54,7 +60,7 @@ namespace DYA.Scripts.DATA
                     GoalPercentage = DATACACHE[i].GoalPercentage,
                     GoalDiscard = DATACACHE[i].GoalDiscard,
 
-                    Assignments = newAssignmentModels
+                    Assignments = new List<LocalAssignment>(newAssignmentModels)
                 };
 
                 localCourses.Add(localCourse);
@@ -83,15 +89,15 @@ namespace DYA.Scripts.DATA
             {
                 List<AssignmentModel> newAssignmentModels = new List<AssignmentModel>();
 
-                for (int j = 0; j < newlocalData.Courses[j].Assignments.Count; j++)
+                for (int j = 0; j < newlocalData.Courses[i].Assignments.Count; j++)
                 {
                     AssignmentModel newAssignmentModel = new AssignmentModel()
                     {
-                        Week = newAssignmentModels[j].Week,
-                        DueTime = newAssignmentModels[j].DueTime,
-                        Submitted = newAssignmentModels[j].Submitted,
-                        PointsReached = newAssignmentModels[j].PointsReached,
-                        PointsMax = newAssignmentModels[j].PointsMax
+                        Week = newlocalData.Courses[i].Assignments[j].Week,
+                        DueTime = newlocalData.Courses[i].Assignments[j].DueTime,
+                        Submitted = newlocalData.Courses[i].Assignments[j].Submitted,
+                        PointsReached = newlocalData.Courses[i].Assignments[j].PointsReached,
+                        PointsMax = newlocalData.Courses[i].Assignments[j].PointsMax
                     };
 
                     newAssignmentModels.Add(newAssignmentModel);
@@ -109,7 +115,7 @@ namespace DYA.Scripts.DATA
                     GoalPercentage = newlocalData.Courses[i].GoalPercentage,
                     GoalDiscard = newlocalData.Courses[i].GoalDiscard,
 
-                    Assignments = newAssignmentModels
+                    Assignments = new List<AssignmentModel>(newAssignmentModels)
                 };
 
                 newCourses.Add(newCourse);
