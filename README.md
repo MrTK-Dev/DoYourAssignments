@@ -1,8 +1,6 @@
 # DoYourAssignments
 Desktop application to enter and view the results of your assignments.
 
-*WIP*
-
 ## Features
 
 * hardcoded (for now) courses, dates, limits, stats, etc.
@@ -11,3 +9,5 @@ Desktop application to enter and view the results of your assignments.
 * see your current rate of reached points
 
 ## Planned
+
+*DEPRECIATED* see [DoYouAssignment](https://github.com/DoYouCircle/DoYouAssignment)
