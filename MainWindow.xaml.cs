@@ -1,5 +1,6 @@
 ﻿using DYA.Scripts.Models;
 using DYA.Scripts;
+using DYA.Scripts.DATA;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -28,7 +29,15 @@ namespace DYA
             InitializeComponent();
 
             //Bind the DataGrid to the data
-            Assignments.DataContext = new TestData().GetCourses();
+            //Assignments.DataContext = new TestData().GetCourses();
+            
+            //Generate random test data
+            //Savings.DATACACHE = new List<CourseModel>(new TestData().GetCourses());
+            //Savings.SaveToFile();
+
+            Savings.LoadFromFile();
+
+            Assignments.DataContext = new ObservableCollection<CourseModel>(Savings.DATACACHE);
         }
     }
 }

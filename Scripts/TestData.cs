@@ -89,7 +89,7 @@ namespace DYA.Scripts
             return newAssignmentModels;
         }
 
-        public ObservableCollection<CourseModel> GetCourses()
+        public List<CourseModel> GetCourses()
         {
             Course1.Assignments = GetRandomAssignments(Course1);
             Course2.Assignments = GetRandomAssignments(Course2);
@@ -103,7 +103,7 @@ namespace DYA.Scripts
                 Course3
             };
 
-            return new ObservableCollection<CourseModel>(courseModels);
+            return courseModels;
         }
     }
 }
